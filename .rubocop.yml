@@ -1,0 +1,14 @@
+AllCops:
+  Exclude:
+    - 'db/**/**'
+    - 'config/**/**'
+    - 'bin/*'
+    - 'app/channels/application_cable/channel.rb'
+    - 'app/channels/application_cable/connection.rb'
+    - 'test/test_helper.rb'
+    - 'app/jobs/application_job.rb'
+    - 'app/models/application_record.rb'
+    - 'app/mailers/application_mailer.rb'
+    - 'config.ru'
+    - 'Rakefile'
+    - 'Gemfile'
