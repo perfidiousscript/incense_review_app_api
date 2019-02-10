@@ -1,0 +1,44 @@
+
+-----------------------------------------------------------------
+  pg_upgrade run on Sat Feb  9 20:35:08 2019
+-----------------------------------------------------------------
+
+
+-----------------------------------------------------------------
+  pg_upgrade run on Sat Feb  9 20:39:48 2019
+-----------------------------------------------------------------
+
+
+-----------------------------------------------------------------
+  pg_upgrade run on Sat Feb  9 20:41:01 2019
+-----------------------------------------------------------------
+
+
+-----------------------------------------------------------------
+  pg_upgrade run on Sat Feb  9 20:43:45 2019
+-----------------------------------------------------------------
+
+
+-----------------------------------------------------------------
+  pg_upgrade run on Sat Feb  9 20:46:46 2019
+-----------------------------------------------------------------
+
+
+-----------------------------------------------------------------
+  pg_upgrade run on Sat Feb  9 20:48:01 2019
+-----------------------------------------------------------------
+
+command: "/usr/local/Cellar/postgresql/10.6/bin/pg_ctl" -w -l "pg_upgrade_server.log" -D "/usr/local/var/postgres" -o "-p 50432 -c autovacuum=off -c autovacuum_freeze_max_age=2000000000 -c synchronous_commit=off -c fsync=off -c full_page_writes=off  -c listen_addresses='' -c unix_socket_permissions=0700" start >> "pg_upgrade_server.log" 2>&1
+pg_ctl: another server might be running; trying to start server anyway
+waiting for server to start....2019-02-09 20:48:01.235 PST [90161] FATAL:  lock file "postmaster.pid" already exists
+2019-02-09 20:48:01.235 PST [90161] HINT:  Is another postmaster (PID 88796) running in data directory "/usr/local/var/postgres"?
+ stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+
+
+
+-----------------------------------------------------------------
+  pg_upgrade run on Sat Feb  9 20:48:35 2019
+-----------------------------------------------------------------
+
