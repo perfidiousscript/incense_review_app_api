@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_10_054711) do
+ActiveRecord::Schema.define(version: 2019_02_10_155907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "brands", force: :cascade do |t|
     t.string "name", null: false
+    t.string "country"
+    t.boolean "approval", default: false, null: false
   end
 
   create_table "incenses", force: :cascade do |t|
@@ -30,6 +32,7 @@ ActiveRecord::Schema.define(version: 2019_02_10_054711) do
   create_table "lines", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "brand_id"
+    t.boolean "approval", default: false, null: false
     t.index ["brand_id"], name: "index_lines_on_brand_id"
   end
 
