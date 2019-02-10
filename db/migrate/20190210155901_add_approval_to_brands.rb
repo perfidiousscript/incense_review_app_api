@@ -1,4 +1,4 @@
-class AddApprovalToBrand < ActiveRecord::Migration[5.2]
+class AddApprovalToBrands < ActiveRecord::Migration[5.2]
   def change
     add_column :brands, :approval, :boolean, null: false, default: false
   end

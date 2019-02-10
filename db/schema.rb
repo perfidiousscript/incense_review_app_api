@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_10_155907) do
+ActiveRecord::Schema.define(version: 2019_02_10_190203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2019_02_10_155907) do
     t.string "name", null: false
     t.string "country"
     t.boolean "approval", default: false, null: false
+    t.text "description"
   end
 
   create_table "incenses", force: :cascade do |t|
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(version: 2019_02_10_155907) do
     t.string "name", null: false
     t.bigint "brand_id"
     t.boolean "approval", default: false, null: false
+    t.text "description"
     t.index ["brand_id"], name: "index_lines_on_brand_id"
   end
 
