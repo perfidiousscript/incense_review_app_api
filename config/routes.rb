@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   end
   resources :lines, param: :line_name, only: [:show, :edit, :update, :destroy]
   resources :incenses, param: :name, only: [:show, :edit, :update, :destroy]
-  get '/brand/:name/approve', to: 'brands#approve'
+  patch '/brand/:name/approve', to: 'brands#approve'
 end
