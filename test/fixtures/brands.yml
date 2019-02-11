@@ -1,20 +1,20 @@
 shoyeido:
   id: 1
-  name: Shoyeido
+  name: shoyeido
   country: Japan
-  approval: T
+  approved: T
   description: Very famous.
 
 baieido:
   id: 2
-  name: Baieido
+  name: baieido
   country: Japan
-  approval: F
+  approved: F
   description: Very expensive.
 
 nipponkodo:
   id: 3
-  name: Nippon Kodo
+  name: nippon kodo
   country: Japan
-  approval: F
+  approved: F
   description: Very cheap.

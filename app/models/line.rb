@@ -3,14 +3,15 @@
 class Line < ApplicationRecord
   belongs_to :brand
   validates :name, presence: true
-  scope :approved, ->(status) { where approval: status }
+  scope :approved, ->(status) { where approved: status }
+  attr_accessor :approved
 
   def approved?
-    approval
+    @approved
   end
 
   def approve
-    approved = true
+    @approved = true
     save
   end
 end

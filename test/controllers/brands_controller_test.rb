@@ -12,12 +12,12 @@ class BrandsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should approve unapproved brand" do
-    get brand_url(name: brands(:baieido).name)
+    get "/brand/baieido/approve"
     assert_response :success
   end
 
   test "should not approve approved brand" do
-    get brand_url(name: brands(:shoyeido).name)
-    assert_response :error
+    get "/brand/shoyeido/approve"
+    assert_equal response.body, "{\"status\":400,\"message\":\"Brand shoyeido already approved\"}"
   end
 end

@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_02_10_190203) do
   create_table "brands", force: :cascade do |t|
     t.string "name", null: false
     t.string "country"
-    t.boolean "approval", default: false, null: false
+    t.boolean "approved", default: false, null: false
     t.text "description"
   end
 
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_02_10_190203) do
   create_table "lines", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "brand_id"
-    t.boolean "approval", default: false, null: false
+    t.boolean "approved", default: false, null: false
     t.text "description"
     t.index ["brand_id"], name: "index_lines_on_brand_id"
   end

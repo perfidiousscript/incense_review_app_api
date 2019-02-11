@@ -4,10 +4,10 @@ class Brand < ApplicationRecord
   has_many :lines
   validates :name, :country, presence: true
   validates_uniqueness_of :name
-  scope :approved, ->(status) { where approval: status }
+  scope :approved, ->(status) { where approved: status }
 
   def approved?
-    approval
+    approved
   end
 
   def approve
