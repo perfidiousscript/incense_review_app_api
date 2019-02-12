@@ -8,9 +8,7 @@ class Line < ApplicationRecord
   attr_accessor :approved
 
   def approved?
-    @approved
+    self[:approved]
   end
 
-  def approve
-  end
 end

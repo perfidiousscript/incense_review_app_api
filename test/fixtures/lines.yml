@@ -1,0 +1,13 @@
+daily:
+  id: 1
+  name: daily
+  brand_id: 1
+  approved: true
+  description: A good daily incense line
+
+horin:
+  id: 2
+  name: horin
+  brand_id: 1
+  approved: false
+  description: A fancy incense line

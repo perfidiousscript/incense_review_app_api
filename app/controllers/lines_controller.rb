@@ -10,7 +10,7 @@ class LinesController < ApplicationController
       puts "success result:  #{response}"
       render json: {status: 204, message: "Line created"}
     else
-      render json: {status: 400, message: "Line #{request.parameters["name"]} could not be created"}
+      render json: {status: 400, error: "Line #{request.parameters["name"]} could not be created"}
     end
   end
 
@@ -29,7 +29,7 @@ class LinesController < ApplicationController
 
   def approve
     if @line.approved?
-      render json: {status:400, message: "Line #{@line.name} already approved"}
+      render json: {status:400, error: "Line #{@line.name} already approved"}
     else
       @line[:approved] = true
       @line.save

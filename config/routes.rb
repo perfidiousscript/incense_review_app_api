@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :brands, param: :name do
-    resources :lines, param: :name, shallow: true do
+    resources :lines, param: :name do
       resources :incenses, param: :name, shallow: true
       patch 'approve', to: 'lines#approve'
     end
