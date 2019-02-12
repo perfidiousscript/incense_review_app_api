@@ -3,6 +3,7 @@
 class Brand < ApplicationRecord
   attr_accessor :approved
   has_many :lines
+  has_many :incenses, through: :lines
   validates :name, :country, presence: true
   validates_uniqueness_of :name
   scope :approved, -> { where approved: true }
