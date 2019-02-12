@@ -11,6 +11,11 @@ class LinesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should error if line cannot be found" do
+    get brand_line_url(brand_name: brands(:shoyeido).name, name: "snergle")
+    assert_equal response.body, "{\"status\":400,\"message\":\"line not found\"}"
+  end
+
   test "should approve unapproved line" do
     patch brand_line_approve_url(brand_name: brands(:shoyeido).name, line_name: lines(:horin).name)
     assert_response :success

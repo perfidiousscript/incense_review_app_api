@@ -11,6 +11,11 @@ class BrandsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should error if brand cannot be found" do
+    get brand_url(name: "snergle")
+    assert_equal response.body, "{\"status\":400,\"message\":\"brand not found\"}"
+  end
+
   test "should approve unapproved brand" do
     patch "/brand/baieido/approve"
     assert_response :success
