@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_10_190203) do
+ActiveRecord::Schema.define(version: 2019_02_12_221724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,9 +24,7 @@ ActiveRecord::Schema.define(version: 2019_02_10_190203) do
 
   create_table "incenses", force: :cascade do |t|
     t.string "name", null: false
-    t.bigint "brand_id"
     t.bigint "line_id"
-    t.index ["brand_id"], name: "index_incenses_on_brand_id"
     t.index ["line_id"], name: "index_incenses_on_line_id"
   end
 
@@ -54,7 +52,6 @@ ActiveRecord::Schema.define(version: 2019_02_10_190203) do
     t.index ["incense_id"], name: "index_reviews_on_incense_id"
   end
 
-  add_foreign_key "incenses", "brands"
   add_foreign_key "incenses", "lines"
   add_foreign_key "lines", "brands"
   add_foreign_key "reviews", "incenses"
