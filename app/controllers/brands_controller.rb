@@ -15,7 +15,6 @@ class BrandsController < ApplicationController
 
   def index
     @brand = Brand.approved
-    byebug
     render json: {status: 200, brands: @brand}
   end
 
@@ -45,6 +44,7 @@ class BrandsController < ApplicationController
   end
 
   def brand_params
+    params.require(:name)
     params.permit(:name, :description, :country)
   end
 end

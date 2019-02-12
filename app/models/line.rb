@@ -4,7 +4,7 @@ class Line < ApplicationRecord
   belongs_to :brand
   validates :name, presence: true
   validates_uniqueness_of :name, scope: :brand_id
-  scope :approved, ->(status) { where approved: status }
+  scope :approved, ->{ where approved: true }
   attr_accessor :approved
 
   def approved?
