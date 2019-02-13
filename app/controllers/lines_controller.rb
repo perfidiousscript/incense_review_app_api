@@ -43,7 +43,7 @@ class LinesController < ApplicationController
 
   def find_line
     find_brand(params[:brand_name])
-    @line = Line.find_by_name(params[:line_name])
+    @line = Line.find_by(brand_id: @brand.id, name: params[:line_name])
     unless @line
       render json: {status: 400, message: "line not found"}
     end

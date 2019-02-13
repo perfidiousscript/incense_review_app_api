@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_12_221724) do
+ActiveRecord::Schema.define(version: 2019_02_12_235615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_02_12_221724) do
   create_table "incenses", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "line_id"
+    t.text "description"
     t.index ["line_id"], name: "index_incenses_on_line_id"
   end
 
@@ -49,6 +50,7 @@ ActiveRecord::Schema.define(version: 2019_02_12_221724) do
     t.string "season"
     t.text "review_text"
     t.bigint "incense_id"
+    t.integer "earthy", null: false
     t.index ["incense_id"], name: "index_reviews_on_incense_id"
   end
 

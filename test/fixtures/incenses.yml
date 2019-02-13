@@ -1,0 +1,23 @@
+golden_pavilion:
+  id: 1
+  name: golden pavilion
+  line_id: 1
+  description: Earthy and Spicey
+
+great_origin:
+  id: 2
+  name: great origin
+  line_id: 1
+  description: Sandalwood and cinnamon
+
+white_river:
+  id: 3
+  name: white river
+  line_id: 2
+  description: Classy Stuff
+
+peaceful_sky:
+  id: 4
+  name: peaceful sky
+  line_id: 2
+  description: Pure Kyara
