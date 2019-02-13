@@ -1,34 +1,34 @@
 # frozen_string_literal: true
 
 class BrandsController < ApplicationController
-  before_action :find_brand, only: [:show, :approve]
+  before_action :find_brand, only: %i[show approve]
 
   def create
     @brand = Brand.new(brand_params)
     if @brand.save
       puts "success result:  #{response}"
-      render json: {status: 204, message: "Brand created"}
+      render json: { status: 204, message: 'Brand created' }
     else
-      render json: {status: 400, message: "Brand #{request.parameters["name"]} already exists"}
+      render json: { status: 400, message: "Brand #{request.parameters['name']} already exists" }
     end
   end
 
   def index
     @brand = Brand.approved
-    render json: {status: 200, brands: @brand}
+    render json: { status: 200, brands: @brand }
   end
 
   def show
-    render json: {status: 200, brand: @brand}
+    render json: { status: 200, brand: @brand }
   end
 
   def approve
     if @brand.approved?
-      render json: {status:400, message: "Brand #{@brand.name} already approved"}
+      render json: { status: 400, message: "Brand #{@brand.name} already approved" }
     else
       @brand[:approved] = true
       @brand.save
-      render json: {status: 200, message: "Brand #{@brand.name} approved"}
+      render json: { status: 200, message: "Brand #{@brand.name} approved" }
     end
   end
 
@@ -38,9 +38,7 @@ class BrandsController < ApplicationController
 
   def find_brand
     @brand = Brand.find_by_name(params[:name])
-    unless @brand
-      render json: {status: 400, message: "brand not found"}
-    end
+    render json: { status: 400, message: 'brand not found' } unless @brand
   end
 
   def brand_params

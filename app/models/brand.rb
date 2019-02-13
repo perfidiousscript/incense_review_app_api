@@ -11,5 +11,4 @@ class Brand < ApplicationRecord
   def approved?
     self[:approved]
   end
-
 end
