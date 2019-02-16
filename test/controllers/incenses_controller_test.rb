@@ -2,17 +2,17 @@ require 'test_helper'
 
 class IncensesControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get brand_line_incenses_url(brand_name: brands(:shoyeido).name, line_name: lines(:daily).name)
+    get line_incenses_url(line_id: lines(:daily).id)
     assert_response :success
   end
 
   test "should show incense by name" do
-    get brand_line_incense_url(brand_name: brands(:shoyeido).name, line_name: lines(:daily).name, name: incenses(:golden_pavilion).name)
+    get incense_url(id: incenses(:golden_pavilion).id)
     assert_response :success
   end
 
   test "should error if incense cannot be found" do
-    get brand_line_incense_url(brand_name: brands(:shoyeido).name, line_name: lines(:daily).name, name: "snergle")
+    get incense_url(id: 9)
     assert_equal response.body, "{\"status\":400,\"message\":\"Incense not found\"}"
   end
 

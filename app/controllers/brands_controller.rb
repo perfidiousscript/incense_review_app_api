@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class BrandsController < ApplicationController
-  before_action :find_brand, only: %i[show approve]
+  before_action :find_brand, except: :index
 
   def create
     @brand = Brand.new(brand_params)
@@ -37,8 +37,9 @@ class BrandsController < ApplicationController
   private
 
   def find_brand
-    @brand = Brand.find_by_name(params[:name])
-    render json: { status: 400, message: 'brand not found' } unless @brand
+    @brand = Brand.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      render json: { status: 400, message: 'brand not found' }
   end
 
   def brand_params

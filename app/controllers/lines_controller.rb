@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class LinesController < ApplicationController
-  before_action :find_line, only: %i[show approve]
-  before_action :find_brand, only: :create
+  before_action :find_line, except: :index
 
   def create
     @line = Line.new(line_params)
@@ -15,7 +14,7 @@ class LinesController < ApplicationController
   end
 
   def index
-    @lines = Line.approved
+    @lines = Line.find_by(brand_id: params[:brand_id])
     render json: { status: 200, brands: @lines }
   end
 
@@ -38,15 +37,9 @@ class LinesController < ApplicationController
   private
 
   def find_line
-    find_brand(params[:brand_name])
-    @line = Line.find_by(brand_id: @brand.id, name: params[:line_name])
-    render json: { status: 400, message: 'line not found' } unless @line
-  end
-
-  def find_brand(brand_name)
-    @brand = Brand.find_by_name(brand_name)
-    render json: { status: 400, message: 'brand not found' } unless @brand
-    params[:brand_id] = @brand.id
+    @line = Line.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      render json: { status: 400, message: 'line not found' }
   end
 
   def line_params
