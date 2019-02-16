@@ -18,6 +18,16 @@ class BrandsController < ApplicationController
     render json: { status: 200, brands: @brand }
   end
 
+  def incenses
+    @incense_array = []
+    @brand.lines.each do |line|
+      line.incenses.each do |incense|
+        @incense_array.push(incense)
+      end
+    end
+    render json: { status: 200, incenses: @incense_array }
+  end
+
   def show
     render json: { status: 200, brand: @brand }
   end

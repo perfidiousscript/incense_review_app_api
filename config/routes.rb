@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     end
     member do
       patch 'approve', to: 'brands#approve'
+      get 'incenses', to: 'brands#incenses'
     end
   end
 end

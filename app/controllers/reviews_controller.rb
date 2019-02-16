@@ -9,14 +9,18 @@ class ReviewsController < ApplicationController
   end
 
   def index
-
+    @reviews = Incense.find(:params[incense_id]).reviews
+    render json: { status: 200, reviews: @reviews }
   end
 
-  def show; end
+  def show
+    @review = Review.find(params[:id])
+    render json: { status: 200, review: @review }
+  end
 
   private
   def review_params
-    param.require(:incense_id)
+    params.require(:incense_id)
     params.permit(:sweet, :sour, :salty, :bitter, :umami, :spice, :woody, :earthy, :minutes, :season, :review_text, :incense_id)
   end
 
