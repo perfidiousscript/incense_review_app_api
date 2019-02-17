@@ -1,0 +1,39 @@
+review_1:
+  sweet: 4
+  sour: 1
+  salty: 0
+  bitter: 0
+  umami: 0
+  spice: 3
+  woody: 1
+  earthy: 3
+  minutes: 25
+  season: 'spring'
+  review_text: 'very nice'
+  incense_id: 1
+review_2:
+  sweet: 4
+  sour: 0
+  salty: 0
+  bitter: 1
+  umami: 0
+  spice: 2
+  woody: 0
+  earthy: 3
+  minutes: 20
+  season: 'spring'
+  review_text: 'good stuff'
+  incense_id: 1
+review_3:
+  sweet: 5
+  sour: 1
+  salty: 1
+  bitter: 1
+  umami: 0
+  spice: 3
+  woody: 0
+  earthy: 3
+  minutes: 30
+  season: 'summer'
+  review_text: 'loved it'
+  incense_id: 1
