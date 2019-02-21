@@ -1,4 +1,5 @@
 review_1:
+  id: 1
   sweet: 4
   sour: 1
   salty: 0
@@ -12,6 +13,7 @@ review_1:
   review_text: 'very nice'
   incense_id: 1
 review_2:
+  id: 2
   sweet: 4
   sour: 0
   salty: 0
@@ -25,6 +27,7 @@ review_2:
   review_text: 'good stuff'
   incense_id: 1
 review_3:
+  id: 3
   sweet: 5
   sour: 1
   salty: 1

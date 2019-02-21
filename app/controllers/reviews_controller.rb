@@ -9,13 +9,15 @@ class ReviewsController < ApplicationController
   end
 
   def index
-    @reviews = Incense.find(:params[incense_id]).reviews
+    @reviews = Incense.find(params[:incense_id]).reviews
     render json: { status: 200, reviews: @reviews }
   end
 
   def show
     @review = Review.find(params[:id])
     render json: { status: 200, review: @review }
+    rescue ActiveRecord::RecordNotFound
+      render json: { status: 400, message: 'Review not found' }
   end
 
   private
