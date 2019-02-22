@@ -26,6 +26,19 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:incense_id)
-    params.permit(:sweet, :sour, :salty, :bitter, :umami, :spice, :woody, :earthy, :minutes, :season, :review_text, :incense_id)
+    params.permit(
+      :sweet,
+      :sour,
+      :salty,
+      :bitter,
+      :umami,
+      :spice,
+      :woody,
+      :earthy,
+      :minutes,
+      :season,
+      :review_text,
+      :incense_id
+    )
   end
 end

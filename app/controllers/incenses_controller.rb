@@ -8,7 +8,10 @@ class IncensesController < ApplicationController
     if @line.save
       render json: { status: 204, message: 'Incense created' }
     else
-      render json: { status: 400, error: "Line #{request.parameters['name']} could not be created" }
+      render json: {
+        status: 400,
+        error: "Line #{request.parameters['name']} could not be created"
+      }
     end
   end
 
@@ -45,10 +48,10 @@ class IncensesController < ApplicationController
       bitter: [],
       umami: [],
       spice: [],
-      earthy: []
+      earthy: [],
       woody: [],
       minutes: [],
-      season: [],
+      season: []
     }
     statistics_hash = {}
     @incense.reviews.each do |review|

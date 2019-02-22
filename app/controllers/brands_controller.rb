@@ -9,7 +9,10 @@ class BrandsController < ApplicationController
       puts "success result:  #{response}"
       render json: { status: 204, message: 'Brand created' }
     else
-      render json: { status: 400, message: "Brand #{request.parameters['name']} already exists" }
+      render json: {
+        status: 400,
+        message: "Brand #{request.parameters['name']} already exists"
+      }
     end
   end
 
@@ -34,7 +37,10 @@ class BrandsController < ApplicationController
 
   def approve
     if @brand.approved?
-      render json: { status: 400, message: "Brand #{@brand.name} already approved" }
+      render json: {
+        status: 400,
+        message: "Brand #{@brand.name} already approved"
+      }
     else
       @brand[:approved] = true
       @brand.save
