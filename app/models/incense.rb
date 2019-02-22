@@ -9,13 +9,16 @@ class Incense < ApplicationRecord
   INCENSE_ATTRIBUTES = [:sweet, :sour, :salty, :bitter, :umami, :spice, :earthy, :woody, :minutes, :season].freeze
 
   def compile_statistics
-    statistics_pre_hash = Hash[INCENSE_ATTRIBUTES.collect { |v| [v,[]] }]
-    statistics_hash = {}
-    reviews.each do |review|
-      statistics_pre_hash.each do |key,value|
-        statistics_pre_hash[key].push(review["#{key}"])
+    statistics_hash = Hash[INCENSE_ATTRIBUTES.collect { |v| [v,{values_array: [], average: 0}] }]
+
+    statistics_hash.each do |key,_v|
+      unless key == :season
+        statistics_hash[key][:average] = reviews.average(key)
       end
+      reviews.each do |review|
+        statistics_hash[key][:values_array].push(review["#{key}"])
+      end
+      p statistics_hash
     end
-    puts "#{statistics_pre_hash}"
   end
 end
