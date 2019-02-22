@@ -21,7 +21,8 @@ class IncensesController < ApplicationController
   end
 
   def show
-    render json: { status: 200, incense: @incense }
+    review_statistics_hash = @incense.compile_statistics
+    render json: { status: 200, incense: @incense, review_statistics: review_statistics_hash }
   end
 
   def update
