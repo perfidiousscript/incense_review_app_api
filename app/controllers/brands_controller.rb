@@ -48,8 +48,8 @@ class BrandsController < ApplicationController
 
   def find_brand
     @brand = Brand.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      render json: { status: 400, message: 'brand not found' }
+  rescue ActiveRecord::RecordNotFound
+    render json: { status: 400, message: 'brand not found' }
   end
 
   def brand_params

@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     if @review.save
       render json: { status: 204, message: 'Review created' }
     else
-      render json: { status: 400, error: "Review could not be created" }
+      render json: { status: 400, error: 'Review could not be created' }
     end
   end
 
@@ -16,14 +18,14 @@ class ReviewsController < ApplicationController
   def show
     @review = Review.find(params[:id])
     render json: { status: 200, review: @review }
-    rescue ActiveRecord::RecordNotFound
-      render json: { status: 400, message: 'Review not found' }
+  rescue ActiveRecord::RecordNotFound
+    render json: { status: 400, message: 'Review not found' }
   end
 
   private
+
   def review_params
     params.require(:incense_id)
     params.permit(:sweet, :sour, :salty, :bitter, :umami, :spice, :woody, :earthy, :minutes, :season, :review_text, :incense_id)
   end
-
 end

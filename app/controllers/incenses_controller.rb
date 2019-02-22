@@ -36,4 +36,26 @@ class IncensesController < ApplicationController
   def incense_params
     params.permit(:name, :line_id, :description)
   end
+
+  def complile_statistics
+    statistics_pre_hash = {
+      sweet: [],
+      sour: [],
+      salty: [],
+      bitter: [],
+      umami: [],
+      spice: [],
+      earthy: []
+      woody: [],
+      minutes: [],
+      season: [],
+    }
+    statistics_hash = {}
+    @incense.reviews.each do |review|
+      # Iterate over each key in statistics_pre_hash and push
+      # the value from each review in.
+    end
+    # Then take averages of all the stats here and
+    # push these averages into the statistics hash
+  end
 end

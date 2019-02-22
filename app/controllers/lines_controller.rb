@@ -38,8 +38,8 @@ class LinesController < ApplicationController
 
   def find_line
     @line = Line.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      render json: { status: 400, message: 'line not found' }
+  rescue ActiveRecord::RecordNotFound
+    render json: { status: 400, message: 'line not found' }
   end
 
   def line_params
