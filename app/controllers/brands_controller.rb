@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class BrandsController < ApplicationController
-  before_action :find_brand, except: :index
+  before_action :find_brand, except: [:index, :index_unapproved]
 
   def create
     @brand = Brand.new(brand_params)
@@ -17,8 +17,13 @@ class BrandsController < ApplicationController
   end
 
   def index
-    @brand = Brand.approved
-    render json: { status: 200, brands: @brand }
+    @brands = Brand.approved
+    render json: { status: 200, brands: @brands }
+  end
+
+  def index_unapproved
+    @brands = Brand.where(approved: false)
+    render json: { status: 200, brands: @brands }
   end
 
   def incenses

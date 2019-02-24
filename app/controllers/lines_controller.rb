@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class LinesController < ApplicationController
-  before_action :find_line, except: :index
+  before_action :find_line, except: [:index, :index_unapproved]
 
   def create
     @line = Line.new(line_params)
@@ -18,11 +18,16 @@ class LinesController < ApplicationController
 
   def index
     @lines = Line.find_by(brand_id: params[:brand_id])
-    render json: { status: 200, brands: @lines }
+    render json: { status: 200, lines: @lines }
+  end
+
+  def index_unapproved
+    @lines = Line.where(approved: false)
+    render json: { status: 200, lines: @lines }
   end
 
   def show
-    render json: { status: 200, brands: @line }
+    render json: { status: 200, lines: @line }
   end
 
   def approve

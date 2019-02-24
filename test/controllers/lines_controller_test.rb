@@ -1,9 +1,16 @@
 require 'test_helper'
 
 class LinesControllerTest < ActionDispatch::IntegrationTest
+  unapproved_lines_result = "{\"status\":200,\"lines\":[{\"id\":2,\"name\":\"horin\",\"brand_id\":1,\"approved\":null,\"description\":\"A fancy incense line\"}]}"
+
   test "should get index" do
     get brand_lines_url(brand_id: brands(:shoyeido).id)
     assert_response :success
+  end
+
+  test "index_unapproved_lines should index unapproved line(s)" do
+    get index_unapproved_brand_lines_url(brand_id: brands(:shoyeido).id)
+    assert_equal response.body, unapproved_lines_result
   end
 
   test "should show line by name" do

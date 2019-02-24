@@ -18,7 +18,6 @@ class Incense < ApplicationRecord
       reviews.each do |review|
         statistics_hash[key][:values_array].push(review["#{key}"])
       end
-      p statistics_hash
     end
   end
 end
