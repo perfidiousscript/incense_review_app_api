@@ -24,7 +24,6 @@ class BrandsController < ApplicationController
 
   def index_unapproved
     @brands = Brand.where(approved: false)
-    authorize! :index_unapproved, @brands
   end
 
   def incenses

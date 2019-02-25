@@ -1,7 +1,7 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
+  def initialize(current_user)
       can :index, :all
       can :show, :all
       can :incenses, :all
