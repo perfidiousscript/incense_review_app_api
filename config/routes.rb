@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  root to: "home#index"
   resources :brands, shallow: true do
     resources :lines, shallow: true do
       resources :incenses, shallow: true do
