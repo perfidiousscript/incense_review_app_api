@@ -12,6 +12,7 @@ review_1:
   season: 'spring'
   review_text: 'very nice'
   incense_id: 1
+  user_id: 1
 review_2:
   id: 2
   sweet: 4
@@ -26,6 +27,7 @@ review_2:
   season: 'spring'
   review_text: 'good stuff'
   incense_id: 1
+  user_id: 2
 review_3:
   id: 3
   sweet: 5
@@ -40,3 +42,4 @@ review_3:
   season: 'summer'
   review_text: 'loved it'
   incense_id: 1
+  user_id: 3

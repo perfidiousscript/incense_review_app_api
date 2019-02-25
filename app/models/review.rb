@@ -2,4 +2,5 @@
 
 class Review < ApplicationRecord
   belongs_to :incense
+  belongs_to :user
 end
