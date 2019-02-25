@@ -9,6 +9,7 @@ class Ability
         can [:new, :create], [Incense, Line, Brand, Review]
         if user.admin?
           can :manage, :all
+          can :index_unapproved, [Line, Brand]
         end
       end
   end

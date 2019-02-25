@@ -2,6 +2,7 @@
 
 class BrandsController < ApplicationController
   before_action :find_brand, except: [:index, :index_unapproved]
+  before_action :authenticate_user!, :index_unapproved
 
   def create
     @brand = Brand.new(brand_params)
@@ -23,7 +24,7 @@ class BrandsController < ApplicationController
 
   def index_unapproved
     @brands = Brand.where(approved: false)
-    render json: { status: 200, brands: @brands }
+    authorize! :index_unapproved, @brands
   end
 
   def incenses
