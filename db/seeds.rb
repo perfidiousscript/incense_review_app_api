@@ -27,15 +27,15 @@ lines = Line.create(
   [
     {
       name: 'daily',
-      brand_id: brand.first,
+      brand_id: brands.first,
       approved: true,
       description: 'Good for day to day use'
     },
     {
       name: 'premium',
-      brand_id: brand.first,
+      brand_id: brands.first,
       approved: false,
-      description: "Shoyeido's high end incense line"
+      description: 'Shoyeidos high end incense line'
     }
   ]
 )
@@ -43,12 +43,12 @@ lines = Line.create(
 incenses = Incense.create(
   [
     {
-      name: 'golden pavilion'.
+      name: 'golden pavilion',
       line_id: lines.first,
       description: 'A spicy, earthy daily incense'
     },
     {
-      name: 'white cloud'.
+      name: 'white cloud',
       line_id: lines.first,
       description: 'A great, aloeswood based daily incense'
     }
